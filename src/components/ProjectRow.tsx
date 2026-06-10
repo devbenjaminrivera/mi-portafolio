@@ -4,13 +4,15 @@ interface ProjectRowProps {
   title: string;
   description: string;
   tech: string[];
-  status: string;
+  status?: string;
   /** "active" | "complete" | "wip" */
   statusType?: "active" | "complete" | "wip";
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
   imageBg?: string;
+  /** "logo" muestra la imagen completa con contain; "cover" la recorta (default) */
+  imageStyle?: "logo" | "cover";
 }
 
 const STATUS_LABELS: Record<string, string> = {
@@ -34,12 +36,17 @@ export default function ProjectRow({
   liveUrl,
   imageUrl,
   imageBg = "#1c1c1c",
+  imageStyle = "cover",
 }: ProjectRowProps) {
   return (
     <article className="project-row" aria-label={`Proyecto: ${title}`}>
 
       {/* Hover image reveal */}
-      <div className="project-image-reveal" aria-hidden="true">
+      <div
+        className="project-image-reveal"
+        aria-hidden="true"
+        style={imageStyle === "logo" ? { background: "transparent" } : undefined}
+      >
         {imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           
@@ -47,7 +54,10 @@ export default function ProjectRow({
             src={imageUrl}
             alt={`Vista previa del proyecto ${title}`}
             fill
-            style={{ objectFit: "cover" }}
+            style={{
+              objectFit: imageStyle === "logo" ? "contain" : "cover",
+              padding: imageStyle === "logo" ? "0.01rem" : "0",
+            }}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         ) : (

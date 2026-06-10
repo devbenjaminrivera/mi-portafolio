@@ -16,6 +16,7 @@ const PROJECTS = [
     githubUrl: "https://github.com/tu-usuario/mi-copa-facil",
     liveUrl: "https://mi-copa-facil.vercel.app",
     imageUrl: "/images/copacevi.png",
+    imageStyle: "logo" as const,
   },
   {
     title: "Calculadora de Promedios",
@@ -24,7 +25,8 @@ const PROJECTS = [
     tech: ["Desarrollo Web", "HTML/CSS", "JavaScript"],
     statusType: "complete" as const,
     liveUrl: "https://calcularpromedio.vercel.app",
-    imageUrl: "/images/calculadora-promedios-preview.jpg",
+    imageUrl: "/images/calc.png",
+    imageStyle: "logo" as const,
   },
   {
     title: "S.A.M.",
@@ -32,7 +34,8 @@ const PROJECTS = [
       "Sistema Autónomo Móvil — automatiza interacciones con aplicaciones móviles y controla funciones del dispositivo de manera autónoma mediante lógica de IA.",
     tech: ["Automatización", "Lógica de IA", "Control Móvil"],
     statusType: "wip" as const,
-    imageUrl: "/images/sam-preview.jpg",
+    imageUrl: "/images/int.png",
+    imageStyle: "logo" as const
   },
 ];
 
