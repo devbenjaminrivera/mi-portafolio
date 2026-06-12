@@ -37,7 +37,7 @@ export default function Footer() {
           >
             <li>
               <a
-                href="https://github.com/tu-usuario"
+                href="https://github.com/devbenjaminrivera"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="t-section-label footer-link"
@@ -47,7 +47,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="mailto:tu-correo@email.com"
+                href="mailto:benjaminrivera.dev@gmail.com"
                 className="t-section-label footer-link"
               >
                 Email

@@ -31,7 +31,7 @@ export default function HomePage() {
           className="animate-in"
           style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "2.5rem" }}
         >
-          <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", background: "var(--ink)", display: "inline-block" }} />
+          <span style={{ width: "0.4rem", height: "0.4rem", borderRadius: "50%", display: "inline-block" }} className="availability-dot" />
           <span className="t-section-label">Disponible para proyectos — Chillán, Chile</span>
         </div>
 
@@ -42,7 +42,7 @@ export default function HomePage() {
         >
           Benjamín
           <br />
-          <span style={{ WebkitTextStroke: "2px var(--ink)", color: "transparent" }}>
+          <span style={{ WebkitTextStroke: "2px var(--burgundy)", color: "transparent" }}>
             Rivera
           </span>
         </h1>
@@ -109,7 +109,7 @@ export default function HomePage() {
             <span className="t-section-label" style={{ display: "block", marginBottom: "1.25rem" }}>
               Quién soy
             </span>
-            <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--ash)" }}>
+            <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--smoke)" }}>
               Estudiante de Ingeniería Civil Informática en la UnACh. Construyo aplicaciones web
               rápidas y escalables, y me interesa la tecnología desde la interfaz hasta el hardware.
             </p>

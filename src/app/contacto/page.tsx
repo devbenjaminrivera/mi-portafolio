@@ -45,7 +45,7 @@ export default function ContactoPage() {
             }}
           >
             ¿Trabajamos<br />
-            <span style={{ WebkitTextStroke: "2px var(--ink)", color: "transparent" }}>
+            <span style={{ WebkitTextStroke: "2px var(--burgundy)", color: "transparent" }}>
               juntos?
             </span>
           </h2>
@@ -68,7 +68,7 @@ export default function ContactoPage() {
             Disponibilidad actual
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1.5rem" }}>
-            <span style={{ width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "var(--ink)", display: "inline-block" }} />
+            <span style={{ width: "0.5rem", height: "0.5rem", borderRadius: "50%", display: "inline-block" }} className="availability-dot" />
             <span style={{ fontSize: "0.88rem", fontWeight: 600 }}>Disponible</span>
           </div>
           <p style={{ fontSize: "0.82rem", color: "var(--smoke)", lineHeight: 1.6 }}>
@@ -81,11 +81,11 @@ export default function ContactoPage() {
 
       {/* ── TYPOGRAPHIC LINK LIST ────────────────────────────────────── */}
       <div style={{ borderTop: "var(--rule)" }}>
-        <a href="mailto:tu-correo@email.com" className="contact-link">
-          tu-correo@email.com
+        <a href="mailto:benjaminrivera.dev@gmail.com" className="contact-link">
+          Contacto Correo
         </a>
         <a
-          href="https://github.com/tu-usuario"
+          href="https://github.com/devbenjaminrivera"
           target="_blank"
           rel="noopener noreferrer"
           className="contact-link"
