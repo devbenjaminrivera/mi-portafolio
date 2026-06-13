@@ -5,13 +5,11 @@ interface ProjectRowProps {
   description: string;
   tech: string[];
   status?: string;
-  /** "active" | "complete" | "wip" */
   statusType?: "active" | "complete" | "wip";
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
   imageBg?: string;
-  /** "logo" muestra la imagen completa con contain; "cover" la recorta (default) */
   imageStyle?: "logo" | "cover";
 }
 
@@ -41,22 +39,20 @@ export default function ProjectRow({
   return (
     <article className="project-row" aria-label={`Proyecto: ${title}`}>
 
-      {/* Hover image reveal */}
+      {/* Hover image reveal — hidden on mobile via CSS */}
       <div
         className="project-image-reveal"
         aria-hidden="true"
         style={imageStyle === "logo" ? { background: "transparent" } : undefined}
       >
         {imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          
           <Image
             src={imageUrl}
             alt={`Vista previa del proyecto ${title}`}
             fill
             style={{
               objectFit: imageStyle === "logo" ? "contain" : "cover",
-              padding: imageStyle === "logo" ? "0.01rem" : "0",
+              padding: imageStyle === "logo" ? "0.5rem" : "0",
             }}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
@@ -88,20 +84,15 @@ export default function ProjectRow({
 
       {/* Left — info */}
       <div style={{ minWidth: 0 }}>
-        {/* Status */}
-        <p
-          className="project-status t-section-label"
-          style={{ marginBottom: "0.5rem", transition: "color 0.2s" }}
-        >
+        <p className="project-status t-section-label" style={{ marginBottom: "0.5rem", transition: "color 0.2s" }}>
           {STATUS_SYMBOLS[statusType]} {STATUS_LABELS[statusType]}
         </p>
 
-        {/* Title */}
         <h3
           className="project-title"
           style={{
             fontFamily: "var(--font-display), var(--font-inter), sans-serif",
-            fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+            fontSize: "clamp(1.4rem, 3vw, 2.5rem)",
             fontWeight: 800,
             letterSpacing: "-0.03em",
             lineHeight: 1,
@@ -112,7 +103,6 @@ export default function ProjectRow({
           {title}
         </h3>
 
-        {/* Description */}
         <p
           className="project-desc"
           style={{
@@ -127,25 +117,13 @@ export default function ProjectRow({
           {description}
         </p>
 
-        {/* Tech */}
-        <p
-          className="project-tech t-section-label"
-          style={{ transition: "color 0.2s" }}
-        >
+        <p className="project-tech t-section-label" style={{ transition: "color 0.2s" }}>
           {tech.join(" · ")}
         </p>
       </div>
 
       {/* Right — action buttons */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.6rem",
-          alignSelf: "center",
-          flexShrink: 0,
-        }}
-      >
+      <div className="project-actions">
         {liveUrl && (
           <a
             href={liveUrl}
@@ -154,7 +132,6 @@ export default function ProjectRow({
             className="project-btn-solid"
             aria-label={`Ver ${title} en vivo`}
           >
-            {/* Arrow icon via character */}
             <span aria-hidden="true">↗</span>
             Página en vivo
           </a>
@@ -167,7 +144,7 @@ export default function ProjectRow({
             className="project-btn-ghost"
             aria-label={`Ver código de ${title} en GitHub`}
           >
-            <span aria-hidden="true">{/* GitHub symbol */}⌥</span>
+            <span aria-hidden="true">⌥</span>
             GitHub
           </a>
         )}

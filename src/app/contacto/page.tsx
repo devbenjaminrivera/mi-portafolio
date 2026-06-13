@@ -14,24 +14,14 @@ export default function ContactoPage() {
         <span className="t-section-label" style={{ display: "block", marginBottom: "1rem" }}>
           Hablemos
         </span>
-        <h1
-          className="t-page-title"
-          style={{ fontFamily: "var(--font-display), sans-serif" }}
-        >
+        <h1 className="t-page-title" style={{ fontFamily: "var(--font-display), sans-serif" }}>
           Contacto
         </h1>
       </div>
 
       {/* ── TWO COLUMN ──────────────────────────────────────────────── */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1.2fr 1fr",
-          gap: "6rem",
-          alignItems: "start",
-          marginBottom: "4rem",
-        }}
-      >
+      <div className="grid-contact">
+
         {/* Left — CTA text */}
         <div>
           <h2
@@ -49,26 +39,19 @@ export default function ContactoPage() {
               juntos?
             </span>
           </h2>
-          <p
-            style={{
-              fontSize: "0.95rem",
-              color: "var(--smoke)",
-              lineHeight: 1.7,
-              maxWidth: "42ch",
-            }}
-          >
+          <p style={{ fontSize: "0.95rem", color: "var(--smoke)", lineHeight: 1.7, maxWidth: "42ch" }}>
             Abierto a proyectos, colaboraciones o simplemente a hablar sobre
             tecnología, desarrollo web y hardware. No dudes en escribirme.
           </p>
         </div>
 
-        {/* Right — availability info */}
-        <div style={{ borderLeft: "var(--rule)", paddingLeft: "3rem", paddingTop: "0.25rem" }}>
+        {/* Right — availability */}
+        <div className="panel-right-border">
           <p className="t-section-label" style={{ marginBottom: "1rem" }}>
             Disponibilidad actual
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1.5rem" }}>
-            <span style={{ width: "0.5rem", height: "0.5rem", borderRadius: "50%", display: "inline-block" }} className="availability-dot" />
+            <span className="availability-dot" />
             <span style={{ fontSize: "0.88rem", fontWeight: 600 }}>Disponible</span>
           </div>
           <p style={{ fontSize: "0.82rem", color: "var(--smoke)", lineHeight: 1.6 }}>
@@ -82,7 +65,7 @@ export default function ContactoPage() {
       {/* ── TYPOGRAPHIC LINK LIST ────────────────────────────────────── */}
       <div style={{ borderTop: "var(--rule)" }}>
         <a href="mailto:benjaminrivera.dev@gmail.com" className="contact-link">
-          Contacto Correo
+          Correo electrónico
         </a>
         <a
           href="https://github.com/devbenjaminrivera"
@@ -100,21 +83,6 @@ export default function ContactoPage() {
           Descargar CV
         </a>
       </div>
-
-      <style>{`
-        @media (max-width: 640px) {
-          main > div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-          main > div > div[style*="border-left"] {
-            border-left: none !important;
-            padding-left: 0 !important;
-            border-top: var(--rule-sm) !important;
-            padding-top: 1.5rem !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }

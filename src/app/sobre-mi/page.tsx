@@ -18,36 +18,25 @@ export default function SobreMiPage() {
   return (
     <main className="container" style={{ paddingTop: "4rem", paddingBottom: "6rem" }}>
 
-      
+      {/* ── PAGE HEADER ─────────────────────────────────────────────── */}
       <div style={{ marginBottom: "3.5rem", borderBottom: "var(--rule)", paddingBottom: "2rem" }}>
         <span className="t-section-label" style={{ display: "block", marginBottom: "1rem" }}>
           Perfil profesional
         </span>
-        <h1
-          className="t-page-title"
-          style={{ fontFamily: "var(--font-display), sans-serif" }}
-        >
+        <h1 className="t-page-title" style={{ fontFamily: "var(--font-display), sans-serif" }}>
           Sobre Mí
         </h1>
       </div>
 
-     
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1.5fr",
-          gap: "5rem",
-          marginBottom: "5rem",
-          paddingBottom: "4rem",
-          borderBottom: "var(--rule)",
-        }}
-      >
-        
+      {/* ── BIO SECTION ─────────────────────────────────────────────── */}
+      <section className="grid-bio">
+
+        {/* Left — identity block */}
         <div>
           <p
             style={{
               fontFamily: "var(--font-display), sans-serif",
-              fontSize: "clamp(3rem, 6vw, 5rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
               fontWeight: 900,
               lineHeight: 0.9,
               letterSpacing: "-0.04em",
@@ -59,21 +48,15 @@ export default function SobreMiPage() {
             UnACh — Chillán, Chile
           </p>
 
-          
           <div style={{ marginTop: "2rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {[
-              { label: "Foco",      val: "Full-Stack Web / Software" },
-              { label: "Entorno",   val: "Windows / Linux / VS Code" },
-              { label: "Estado",    val: "Disponible" },
+              { label: "Foco",    val: "Full-Stack Web / Software" },
+              { label: "Entorno", val: "Windows / Linux / VS Code" },
+              { label: "Estado",  val: "Disponible" },
             ].map(({ label, val }) => (
               <div
                 key={label}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  paddingBottom: "0.5rem",
-                  borderBottom: "var(--rule-sm)",
-                }}
+                style={{ display: "flex", justifyContent: "space-between", paddingBottom: "0.5rem", borderBottom: "var(--rule-sm)" }}
               >
                 <span className="t-section-label">{label}</span>
                 <span style={{ fontSize: "0.8rem", fontWeight: 600 }}>{val}</span>
@@ -82,23 +65,23 @@ export default function SobreMiPage() {
           </div>
         </div>
 
-        
+        {/* Right — bio text */}
         <div>
-          <p style={{ fontSize: "1.05rem", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--ash)", marginBottom: "1.5rem" }}>
+          <p style={{ fontSize: "1.05rem", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--smoke)", marginBottom: "1.5rem" }}>
             Soy estudiante de Ingeniería Civil Informática en la Universidad Adventista de Chile
             (UnACh). Me apasiona la tecnología en todas sus capas: desde crear interfaces fluidas
             y bases de datos robustas, hasta diagnosticar y reparar hardware a bajo nivel.
           </p>
-          <p style={{ fontSize: "1.05rem", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--ash)" }}>
+          <p style={{ fontSize: "1.05rem", lineHeight: 1.7, letterSpacing: "-0.01em", color: "var(--smoke)" }}>
             Disfruto construyendo herramientas que optimizan procesos reales. Fuera del código
-            exploro opciones de proyectos, nuevas habilidades y experimento con componentes de hardware.
-           Llevo casi 4 años programando, con un enfoque actual en desarrollo web full-stack. Mi objetivo es
+            exploro nuevas habilidades y experimento con componentes de hardware.
+            Llevo casi 4 años programando, con un enfoque actual en desarrollo web full-stack. Mi objetivo es
             crecer profesionalmente, aportar a proyectos desafiantes y seguir aprendiendo en el camino.
-
           </p>
         </div>
       </section>
 
+      {/* ── STACK TÉCNICO ───────────────────────────────────────────── */}
       <section>
         <div
           style={{
@@ -125,7 +108,7 @@ export default function SobreMiPage() {
           </span>
         </div>
 
-        
+        {/* Table header */}
         <div
           style={{
             display: "grid",
@@ -139,7 +122,6 @@ export default function SobreMiPage() {
           <span className="t-section-label">Tecnologías</span>
         </div>
 
-        
         <div role="table" aria-label="Stack técnico">
           {STACK.map(({ category, items }) => (
             <div key={category} className="skill-row" role="row">
@@ -149,15 +131,6 @@ export default function SobreMiPage() {
           ))}
         </div>
       </section>
-
-      <style>{`
-        @media (max-width: 640px) {
-          section[style*="grid-template-columns: 1fr 1.5fr"] {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }

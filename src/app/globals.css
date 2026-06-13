@@ -2,26 +2,21 @@
 
 /* ─── DESIGN TOKENS ──────────────────────────────────────────────────── */
 :root {
-  /* Core palette */
   --burgundy:    #5C0A28;
-  --burgundy-hi: #7a0f35;   /* hover / lighter tint */
-  --burgundy-lo: #3d0619;   /* pressed / deeper tint */
+  --burgundy-hi: #7a0f35;
+  --burgundy-lo: #3d0619;
   --silver:      #A9A9A9;
-  --silver-lo:   #6e6e6e;   /* dimmer silver */
+  --silver-lo:   #6e6e6e;
 
-  /* Surface scale — dark theme */
-  --ink:         #F0EDE8;   /* primary text (off-white, warmer) */
-  --paper:       #0D0D0D;   /* page background */
+  --ink:         #F0EDE8;
+  --paper:       #0D0D0D;
   --chalk:       #ffffff;
-  --ash:         #1a1a1a;   /* card / raised surface */
-  --dust:        #242424;   /* subtle lift */
+  --ash:         #1a1a1a;
+  --dust:        #242424;
   --smoke:       var(--silver-lo);
 
-  /* Rules */
   --rule:        1px solid rgba(169, 169, 169, 0.2);
   --rule-sm:     0.5px solid rgba(169, 169, 169, 0.12);
-
-  /* Accent rule */
   --rule-accent: 1px solid var(--burgundy);
 
   --nav-h: 4rem;
@@ -47,7 +42,7 @@ body {
 
 /* ─── TYPOGRAPHY ─────────────────────────────────────────────────────── */
 .t-display {
-  font-size: clamp(4.5rem, 12vw, 13rem);
+  font-size: clamp(3.5rem, 11vw, 13rem);
   font-weight: 900;
   line-height: 0.88;
   letter-spacing: -0.04em;
@@ -102,6 +97,60 @@ body {
 .rule-x  { border-top: var(--rule); }
 .rule-b  { border-bottom: var(--rule); }
 
+/* ─── RESPONSIVE GRID CLASSES ────────────────────────────────────────── */
+/* Used by page.tsx, sobre-mi, contacto in place of inline grid styles   */
+
+/* 2-col equal — collapses to 1 col on mobile */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Sobre Mí bio section: narrow left + wide right */
+.grid-bio {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  margin-bottom: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: var(--rule);
+}
+
+/* Contacto: slightly wider left */
+.grid-contact {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+/* Right panel with left border (contacto, home about) */
+.panel-right-border {
+  border-left: var(--rule);
+  padding-left: 3rem;
+  padding-top: 0.25rem;
+}
+
+/* Hero descriptor row */
+.hero-descriptor {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-stack-info {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
 /* ─── TOP NAVBAR ─────────────────────────────────────────────────────── */
 .top-nav {
   position: fixed;
@@ -134,7 +183,6 @@ body {
   color: var(--ink);
   text-decoration: none;
   line-height: 1;
-  /* small burgundy underline accent */
   border-bottom: 2px solid var(--burgundy);
   padding-bottom: 1px;
   transition: color 0.15s ease;
@@ -160,15 +208,8 @@ body {
   white-space: nowrap;
 }
 
-.top-nav-link:hover,
-.top-nav-link.active {
-  color: var(--ink);
-}
-
-.top-nav-link.active {
-  font-weight: 700;
-  color: var(--silver);
-}
+.top-nav-link:hover { color: var(--ink); }
+.top-nav-link.active { font-weight: 700; color: var(--silver); }
 
 .top-nav-cta {
   font-size: 0.75rem;
@@ -229,17 +270,12 @@ body {
   letter-spacing: -0.02em;
   color: var(--ink);
   text-decoration: none;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   border-bottom: var(--rule);
   transition: color 0.15s;
 }
 
 .nav-mobile-link:hover { color: var(--silver); }
-
-@media (max-width: 768px) {
-  .top-nav-links, .top-nav-cta { display: none; }
-  .nav-hamburger { display: flex; }
-}
 
 /* ─── PROJECT ROWS ───────────────────────────────────────────────────── */
 .project-row {
@@ -254,7 +290,6 @@ body {
   transition: padding-left 0.25s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-/* Burgundy left-border reveal on hover */
 .project-row::after {
   content: '';
   position: absolute;
@@ -268,7 +303,6 @@ body {
 
 .project-row:hover::after { transform: scaleY(1); }
 
-/* Subtle background lift on hover */
 .project-row::before {
   content: '';
   position: absolute;
@@ -283,22 +317,14 @@ body {
 .project-row:hover { padding-left: 1.25rem; }
 .project-row > * { position: relative; z-index: 1; }
 
-/* Text color shifts on hover */
 .project-row:hover .project-title  { color: var(--ink); }
 .project-row:hover .project-desc   { color: var(--silver); }
 .project-row:hover .project-tech   { color: var(--silver-lo); }
 .project-row:hover .project-status { color: var(--burgundy); }
+.project-row:hover .project-btn-ghost { border-color: var(--silver); color: var(--silver); }
+.project-row:hover .project-btn-solid { background: var(--burgundy-hi); border-color: var(--burgundy-hi); }
 
-.project-row:hover .project-btn-ghost {
-  border-color: var(--silver);
-  color: var(--silver);
-}
-.project-row:hover .project-btn-solid {
-  background: var(--burgundy-hi);
-  border-color: var(--burgundy-hi);
-}
-
-/* Image reveal */
+/* Image reveal — desktop only */
 .project-image-reveal {
   position: absolute;
   top: 50%;
@@ -321,9 +347,13 @@ body {
   transform: translateY(-50%) scale(1) rotate(-1deg);
 }
 
-.project-image-reveal img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+/* Project buttons container */
+.project-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-self: center;
+  flex-shrink: 0;
 }
 
 /* ─── PROJECT BUTTONS ────────────────────────────────────────────────── */
@@ -382,7 +412,7 @@ body {
   gap: 2rem;
   padding: 0.9rem 0;
   border-bottom: var(--rule-sm);
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, padding 0.15s ease;
 }
 
 .skill-row:first-child { border-top: var(--rule-sm); }
@@ -438,7 +468,7 @@ body {
 /* ─── CONTACT LINKS ──────────────────────────────────────────────────── */
 .contact-link {
   display: block;
-  font-size: clamp(1.8rem, 4vw, 4.5rem);
+  font-size: clamp(1.4rem, 4vw, 4.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -491,6 +521,7 @@ body {
   display: inline-block;
   box-shadow: 0 0 6px var(--burgundy);
   animation: pulse-dot 2.5s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes pulse-dot {
@@ -503,9 +534,99 @@ body {
 ::-webkit-scrollbar-track { background: var(--paper); }
 ::-webkit-scrollbar-thumb { background: var(--burgundy); }
 
-/* ─── MOBILE ─────────────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ─── TABLET (≤ 768px) ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Navbar */
+  .top-nav-links, .top-nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+
+  /* Grids → single column */
+  .grid-2col,
+  .grid-bio,
+  .grid-contact {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Remove left border on stacked panels */
+  .panel-right-border {
+    border-left: none;
+    padding-left: 0;
+    border-top: var(--rule-sm);
+    padding-top: 1.5rem;
+  }
+
+  /* Hero stack info goes full width, left-aligned */
+  .hero-stack-info {
+    margin-left: 0;
+    align-items: flex-start;
+  }
+
+  /* About section brief */
+  .grid-2col > div:last-child {
+    padding-left: 0;
+    border-left: none;
+    border-top: var(--rule-sm);
+    padding-top: 1.5rem;
+  }
+}
+
+/* ─── MOBILE (≤ 640px) ───────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .skill-row { grid-template-columns: 1fr; gap: 0.3rem; }
-  .project-row { grid-template-columns: 1fr; }
+  /* Tighter container padding */
+  .container { padding-inline: 1.25rem; }
+
+  /* Hero: less bottom padding, don't lock to full viewport height */
+  .hero-section {
+    min-height: calc(100svh - var(--nav-h));
+    padding-bottom: 3rem;
+  }
+
+  /* Skill table: stack category above items */
+  .skill-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.75rem 0;
+  }
+
+  /* Project rows: stack info + buttons vertically */
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+  }
+
+  /* Buttons: go horizontal on mobile (side by side) */
+  .project-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .project-btn-solid,
+  .project-btn-ghost {
+    flex: 1;
+    justify-content: center;
+    min-height: 3rem;   /* bigger tap target */
+    font-size: 0.82rem;
+  }
+
+  /* Hide hover image reveal (touch devices) */
   .project-image-reveal { display: none; }
+
+  /* Footer: center everything */
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  /* Contact links: scale down font a bit more */
+  .contact-link {
+    font-size: clamp(1.6rem, 8vw, 3rem);
+    padding: 0.9rem 0;
+  }
 }
