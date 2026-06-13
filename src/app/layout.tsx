@@ -23,7 +23,12 @@ export const metadata: Metadata = {
   },
   description:
     "Portafolio de Benjamín Rivera, Ingeniero Informático en formación. Especializado en Next.js, React y Laravel.",
-};
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
+}; 
+
 
 export default function RootLayout({
   children,
