@@ -580,9 +580,10 @@ body {
   /* Tighter container padding */
   .container { padding-inline: 1.25rem; }
 
-  /* Hero: less bottom padding, don't lock to full viewport height */
+  /* Hero: en móvil fluye con el contenido, sin altura mínima */
   .hero-section {
-    min-height: calc(100svh - var(--nav-h));
+    min-height: unset !important;
+    padding-top: 3rem;
     padding-bottom: 3rem;
   }
 
